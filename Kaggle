@@ -1,0 +1,30 @@
+---
+title: "Untitled"
+author: "Tony Grant"
+date: "12/16/2019"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(maps)
+library(latexpdf)
+library(tidyr)
+library(ggplot2)
+library(readr)
+master <- read_csv('/Users/Tony_Grant/Downloads/master.csv')
+```
+
+```{r}
+master %>% 
+  ggplot(aes(x = generation , y = suicides_no , fill = generation))+
+  geom_boxplot(alpha = .50)+
+  coord_cartesian(ylim = c(0,500))
+```
+
+
+
